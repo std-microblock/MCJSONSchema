@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  UpdatePlugins:
+  UpdateJSON:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
