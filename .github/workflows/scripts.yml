@@ -23,7 +23,7 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm ci
-        working-directory: /script
+        working-directory: ./script
 
       - name: 'Run script'
         timeout-minutes: 10
