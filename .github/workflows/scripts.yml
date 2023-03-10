@@ -23,13 +23,13 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm ci
-        working-directory: ../scripts
+        working-directory: /script
 
       - name: 'Run script'
         timeout-minutes: 10
         run: node -r esbuild-register ./index.ts
         id: node
-        working-directory: './scripts'
+        working-directory: ./script
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: 'Commit'
