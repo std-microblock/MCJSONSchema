@@ -16,19 +16,22 @@ jobs:
           fetch-depth: 0
       - name: 'Set up node 18.x'
         uses: actions/setup-node@v3
+        working-directory: 'frontend'
         with:
           node-version: 18.x
           cache: 'npm'
+          cw
       - name: 'Install dependencies'
         run: npm ci
         working-directory: scripts
+
       - name: 'Run script'
         timeout-minutes: 10
         run: node -r esbuild-register ./index.ts
         id: node
+        working-directory: 'frontend'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        working-directory: scripts/
       - name: 'Commit'
         run: |
           git config --local user.email "github-actions[bot]"
