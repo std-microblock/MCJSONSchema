@@ -1,0 +1,18 @@
+{
+  "name": "mc-json-schema",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^21.1.0"
+  },
+  "scripts": {
+    "run": "node -r esbuild-register ./index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "@types/jsdom": "^21.1.0",
+    "esbuild": "^0.17.11",
+    "esbuild-register": "^3.4.2"
+  }
+}
