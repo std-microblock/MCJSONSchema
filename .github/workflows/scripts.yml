@@ -16,9 +16,9 @@ jobs:
           fetch-depth: 0
       - name: 'Set up node 18.x'
         uses: actions/setup-node@v3
-        working-directory: 'frontend'
         with:
           node-version: 18.x
+          cache-dependency-path: '**/package-lock.json'
           cache: 'npm'
 
       - name: 'Install dependencies'
