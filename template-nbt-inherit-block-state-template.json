@@ -1,0 +1,27 @@
+[
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "Name",
+        "description": "要使用的方块的命名空间ID。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "Properties",
+        "description": "（可选）方块属性。只能指定该方块所拥有的属性。未指定的属性则设为默认值。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_String"
+                ],
+                "key": "<属性名>",
+                "description": "（可选）方块属性的键值对。",
+                "children": []
+            }
+        ]
+    }
+]

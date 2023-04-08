@@ -1,0 +1,79 @@
+[
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "type",
+        "description": "表面规则的类型ID，可以是以下值：bandlands[原文如此]、block、condition和sequence。每个类型的额外参数见下方。如果 type是bandlands[原文如此]（用于恶地），没有额外参数。\n如果 type是block（放置指定方块），附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "result_state",
+        "description": "使用的方块。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-block-state-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_List"
+        ],
+        "key": "sequence",
+        "description": "（必选，但可以为空）表面规则的列表。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Compound"
+                ],
+                "key": "",
+                "description": "一个表面规则。",
+                "children": [
+                    {
+                        "tags": [],
+                        "key": "",
+                        "description": "Circular reference detected: x -> 10 -> x -> 0 -> 自定义世界生成/surface rule -> 2 -> x -> 0 -> x -> 0 -> 自定义世界生成/surface rule",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "if_true",
+        "description": "条件。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "surface-rule-condition.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "then_run",
+        "description": "表面规则。",
+        "children": [
+            {
+                "tags": [],
+                "key": "",
+                "description": "Circular reference detected: x -> 10 -> x -> 0 -> 自定义世界生成/surface rule -> 4 -> x -> 0 -> 自定义世界生成/surface rule",
+                "children": []
+            }
+        ]
+    }
+]

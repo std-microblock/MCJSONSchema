@@ -1,0 +1,118 @@
+[
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "temperature",
+        "description": "温度。不要与生物群系的温度混淆。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "min",
+                "description": "最小值。取值为-2.0到2.0的闭区间。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "max",
+                "description": "最大值。取值为-2.0到2.0的闭区间。必须大于等于min。",
+                "children": []
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_List"
+        ],
+        "key": "temperature",
+        "description": "简写形式。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "",
+                "description": "最小值。取值为-2.0到2.0的闭区间。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "",
+                "description": "最大值。取值为-2.0到2.0的闭区间。必须大于等于min。",
+                "children": []
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "temperature",
+        "description": "最小值和最大值相同时的简写形式。取值为-2.0到2.0的闭区间。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound",
+            "TAG_List",
+            "TAG_Float"
+        ],
+        "key": "humidity",
+        "description": "湿度。格式与temperature相同，可以为一个对象、一个数组或者一个浮点数。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound",
+            "TAG_List",
+            "TAG_Float"
+        ],
+        "key": "continentalness",
+        "description": "大陆性。在原版主世界，低大陆性对应于海洋地形，高大陆性对应于内陆地形。格式与temperature相同。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound",
+            "TAG_List",
+            "TAG_Float"
+        ],
+        "key": "erosion",
+        "description": "侵蚀度。在原版主世界，高侵蚀度对应平坦地形。格式与temperature相同。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound",
+            "TAG_List",
+            "TAG_Float"
+        ],
+        "key": "weirdness",
+        "description": "怪异度。在原版主世界，用于生物群系崎岖程度。格式与temperature相同。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound",
+            "TAG_List",
+            "TAG_Float"
+        ],
+        "key": "depth",
+        "description": "深度。在原版主世界，只有此参数会随垂直位置改变：在XZ坐标不变的情况下，Y轴坐标越高，该值越高。格式与temperature相同。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "offset",
+        "description": "偏移。取值为0.0到1.0的闭区间。类似于其他参数，但是offset在任何地方都是0，因此若其他参数都相等，将这个参数设为靠近0的值会使其占更多优势。",
+        "children": []
+    }
+]
