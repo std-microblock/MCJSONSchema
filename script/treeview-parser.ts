@@ -2,23 +2,23 @@ import { createDomFromHTML } from "./dom";
 import { getPageAPIUrl } from "./fandom";
 import { fetchJSONAndCache } from "./network";
 import { flat } from "./utils";
-import { writeFileSync } from "fs"
+import { writeFileSync, rmSync } from "fs"
 
 function toSlug(str) {
-  // 将字符串中的非字母数字字符替换为 -
-  str = str.replace(/[^a-zA-Z0-9]/g, "-")
-  
-  // 将连续的 - 替换为单个 -
-  str = str.replace(/-+/g, "-")
-  
-  // 将开头和结尾的 - 去掉
-  str = str.replace(/^-|-$/g, "")
-  
-  // 将所有字母转换为小写
-  str = str.toLowerCase()
-  
-  // 返回 slug
-  return str
+    // 将字符串中的非字母数字字符替换为 -
+    str = str.replace(/[^a-zA-Z0-9]/g, "-")
+
+    // 将连续的 - 替换为单个 -
+    str = str.replace(/-+/g, "-")
+
+    // 将开头和结尾的 - 去掉
+    str = str.replace(/^-|-$/g, "")
+
+    // 将所有字母转换为小写
+    str = str.toLowerCase()
+
+    // 返回 slug
+    return str
 }
 
 
@@ -35,7 +35,7 @@ export const parseTreeviewDOM = async (treeview, path: string[] = []) => {
         const json = await fetchJSONAndCache(getPageAPIUrl(page));
         const html = json.parse.text['*'];
         const c = createDomFromHTML(html).querySelector("li > ul");
-        if(c?.children.length == 1) return c.querySelector("li > ul")
+        if (c?.children.length == 1) return c.querySelector("li > ul")
         return c;
     };
 
@@ -48,10 +48,11 @@ export const parseTreeviewDOM = async (treeview, path: string[] = []) => {
                 children: []
             }
         ];
-        const page= treeview.dataset.page;
-        const filename = toSlug(page)+".json";
-        const res=getAllChildren(await requestForPage(treeview.dataset.page), treeview.dataset.page);
-        writeFileSync(filename, JSON.stringify(res,undefined,4));
+        const page = treeview.dataset.page;
+        const filename = toSlug(page) + ".json";
+        const res = await getAllChildren(await requestForPage(treeview.dataset.page), treeview.dataset.page);
+        rmSync(filename, { force: true })
+        writeFileSync("../" + filename, JSON.stringify(res, undefined, 4));
         return { tags: ["MCS_Pointer"], point_to: filename }
     }
 
