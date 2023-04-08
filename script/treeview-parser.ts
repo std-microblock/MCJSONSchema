@@ -2,6 +2,25 @@ import { createDomFromHTML } from "./dom";
 import { getPageAPIUrl } from "./fandom";
 import { fetchJSONAndCache } from "./network";
 import { flat } from "./utils";
+import { writeFileSync } from "fs"
+
+function toSlug(str) {
+  // 将字符串中的非字母数字字符替换为 -
+  str = str.replace(/[^a-zA-Z0-9]/g, "-")
+  
+  // 将连续的 - 替换为单个 -
+  str = str.replace(/-+/g, "-")
+  
+  // 将开头和结尾的 - 去掉
+  str = str.replace(/^-|-$/g, "")
+  
+  // 将所有字母转换为小写
+  str = str.toLowerCase()
+  
+  // 返回 slug
+  return str
+}
+
 
 export const parseTreeviewDOM = async (treeview, path: string[] = []) => {
     const getAllChildren = async (ul, pagename = "x") => {
@@ -29,7 +48,11 @@ export const parseTreeviewDOM = async (treeview, path: string[] = []) => {
                 children: []
             }
         ];
-        return getAllChildren(await requestForPage(treeview.dataset.page), treeview.dataset.page)
+        
+        const filename = toSlug(page)+".json";
+        const res=getAllChildren(await requestForPage(treeview.dataset.page), treeview.dataset.page);
+        writeFileSync(filename, JSON.stringify(res,undefined,4));
+        return { tags: ["MCS_Pointer"], point_to: filename }
     }
 
 
