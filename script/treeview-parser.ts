@@ -48,7 +48,7 @@ export const parseTreeviewDOM = async (treeview, path: string[] = []) => {
                 children: []
             }
         ];
-        
+        const page= treeview.dataset.page;
         const filename = toSlug(page)+".json";
         const res=getAllChildren(await requestForPage(treeview.dataset.page), treeview.dataset.page);
         writeFileSync(filename, JSON.stringify(res,undefined,4));
