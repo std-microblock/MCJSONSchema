@@ -1,0 +1,15 @@
+{
+    "tags": [
+        "TAG_List"
+    ],
+    "key": "",
+    "description": "处理器的列表。",
+    "children": [
+        {
+            "tags": [
+                "MCS_Pointer"
+            ],
+            "point_to": "processor.json"
+        }
+    ]
+}

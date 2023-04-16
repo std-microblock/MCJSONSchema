@@ -1,0 +1,23 @@
+{
+    "tags": [
+        "TAG_Compound"
+    ],
+    "key": "",
+    "description": "根对象",
+    "children": [
+        {
+            "tags": [
+                "TAG_String"
+            ],
+            "key": "type",
+            "description": "密度函数类型ID。",
+            "children": []
+        },
+        {
+            "tags": [],
+            "key": "",
+            "description": "",
+            "children": []
+        }
+    ]
+}
