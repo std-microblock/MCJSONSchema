@@ -1,0 +1,52 @@
+{
+    "tags": [
+        "TAG_Compound"
+    ],
+    "key": "",
+    "description": "根标签",
+    "children": [
+        {
+            "tags": [
+                "TAG_String",
+                "TAG_Compound"
+            ],
+            "key": "feature",
+            "description": "一个已配置的地物的ID，或者一个已配置的地物的对象。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_List"
+            ],
+            "key": "placement",
+            "description": "一个放置修饰器的列表。列表中的修饰器会被按顺序依次调用。",
+            "children": [
+                {
+                    "tags": [
+                        "TAG_Compound"
+                    ],
+                    "key": "",
+                    "description": "一个放置修饰器",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_String"
+                            ],
+                            "key": "type",
+                            "description": "放置修饰器的类型。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_String"
+                            ],
+                            "key": "type",
+                            "description": "的值，参见下文。",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "tags": [
+        "TAG_Compound"
+    ],
+    "key": "",
+    "description": "根标签",
+    "children": [
+        {
+            "tags": [
+                "TAG_String"
+            ],
+            "key": "type",
+            "description": "地物类型ID。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_Compound"
+            ],
+            "key": "config",
+            "description": "此已配置的地物的配置。配置项由type决定。任何不在此下方列出的名称不含有配置项，但其定义中仍须包含一个空的config对象。",
+            "children": []
+        }
+    ]
+}
