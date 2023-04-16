@@ -1,0 +1,611 @@
+{
+    "tags": [
+        "TAG_Compound"
+    ],
+    "key": "",
+    "description": "根标签",
+    "children": [
+        {
+            "tags": [
+                "TAG_String"
+            ],
+            "key": "precipitation",
+            "description": "生物群系的降雨类型，可以是none、rain或snow。如果是snow，在这个生物群系中生成的兔子为白色或黑白，狐狸为白色。只有为rain时，这个生物群系才能下雨。但是为rain或snow时，这个生物群系中就能够下雪（取决于随高度调整的温度值）。请注意，如果为snow，则temperature不能低于0.15，否则，在这个生物群系既不能下雨也不能下雪，并且在应该降水时出现一些渲染问题。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_Float"
+            ],
+            "key": "temperature",
+            "description": "用于草和树叶等地物的颜色，以及计算随高度调整的温度值（控制雪傀儡是否受到伤害，下雨还是下雪，以及某些地物的生成细节）。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_String"
+            ],
+            "key": "temperature_modifier",
+            "description": "（可选，默认为none）可为none或frozen。在计算随高度调整的温度值之前对初始温度值进行随机修改。如果为frozen，调高某些地方的温度值以使其足以下雨（0.2）。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_Float"
+            ],
+            "key": "downfall",
+            "description": "控制草和树叶的颜色，大于0.85的值还可以使火焰更快地燃烧。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_Compound"
+            ],
+            "key": "effects",
+            "description": "该生物群系的环境效果。",
+            "children": [
+                {
+                    "tags": [
+                        "TAG_Int"
+                    ],
+                    "key": "fog_color",
+                    "description": "用于迷雾的十六进制转十进制RGB颜色值。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Int"
+                    ],
+                    "key": "sky_color",
+                    "description": "此生物群系中用于天空的十六进制转十进制RGB颜色值。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Int"
+                    ],
+                    "key": "water_color",
+                    "description": "用于水的十六进制转十进制RGB颜色值。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Int"
+                    ],
+                    "key": "water_fog_color",
+                    "description": "用于水下迷雾的十六进制转十进制RGB颜色值。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Int"
+                    ],
+                    "key": "foliage_color",
+                    "description": "（可选）用于树叶和藤蔓的十六进制转十进制RGB颜色值。若不写，颜色将由downfall和temperature决定。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Int"
+                    ],
+                    "key": "grass_color",
+                    "description": "（可选）用于草方块、草、高草丛、蕨、大型蕨和甘蔗的十六进制转十进制RGB颜色值。若不写，颜色将由downfall和temperature决定。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String"
+                    ],
+                    "key": "grass_color_modifier",
+                    "description": "（可选，默认为none）可以是none、dark_forest或者swamp。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Compound"
+                    ],
+                    "key": "particle",
+                    "description": "（可选）充斥在生物群系中的粒子。",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_Float"
+                            ],
+                            "key": "probability",
+                            "description": "控制粒子产生的频率。高于1的值相当于1，低于0的值相当于0。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Compound"
+                            ],
+                            "key": "options",
+                            "description": "要使用的粒子。另见命令/particle。",
+                            "children": [
+                                {
+                                    "tags": [
+                                        "TAG_String"
+                                    ],
+                                    "key": "type",
+                                    "description": "粒子类型的命名空间ID。如果type是block、block_marker或falling_dust：",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Compound"
+                                    ],
+                                    "key": "value",
+                                    "description": "粒子使用的方块状态。",
+                                    "children": [
+                                        {
+                                            "tags": [
+                                                "MCS_Pointer"
+                                            ],
+                                            "point_to": "template-nbt-inherit-block-state-template.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_String"
+                                    ],
+                                    "key": "id",
+                                    "description": "所要使用的物品的命名空间ID。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Int"
+                                    ],
+                                    "key": "Count",
+                                    "description": "物品的数量。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Compound"
+                                    ],
+                                    "key": "tag",
+                                    "description": "JSON格式的物品的NBT数据。参见NBT格式#JSON与NBT。如果type是dust：",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_List"
+                                    ],
+                                    "key": "color",
+                                    "description": "代表颜色的红色、绿色和蓝色部分的三个浮点数，每个值的取值都是0到1的闭区间。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Float"
+                                    ],
+                                    "key": "scale",
+                                    "description": "控制粒子的大小。如果type是dust_color_transition：",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_List"
+                                    ],
+                                    "key": "color",
+                                    "description": "代表开始颜色的红色、绿色和蓝色部分的三个浮点数，每个值的取值都是0到1的闭区间。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_List"
+                                    ],
+                                    "key": "color",
+                                    "description": "代表结束颜色的红色、绿色和蓝色部分的三个浮点数，每个值的取值都是0到1的闭区间。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Float"
+                                    ],
+                                    "key": "scale",
+                                    "description": "控制粒子的大小。如果type是sculk_charge：",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Float"
+                                    ],
+                                    "key": "roll",
+                                    "description": "粒子显示的角度，以弧度为单位。如果type是vibration：",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Compound"
+                                    ],
+                                    "key": "destination",
+                                    "description": "目标位置。",
+                                    "children": [
+                                        {
+                                            "tags": [
+                                                "MCS_Pointer"
+                                            ],
+                                            "point_to": "position-source.json"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Int"
+                                    ],
+                                    "key": "arrival_in_ticks",
+                                    "description": "运动时长，以游戏刻为单位。如果type是shriek：",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Int"
+                                    ],
+                                    "key": "delay",
+                                    "description": "延迟时长，以游戏刻为单位。",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tags": [
+                        "TAG_String"
+                    ],
+                    "key": "ambient_sound",
+                    "description": "（可选）用于环境音效的声音事件的ID。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_Compound"
+                    ],
+                    "key": "mood_sound",
+                    "description": "（可选）氛围音效所使用的设置。",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_String"
+                            ],
+                            "key": "sound",
+                            "description": "要使用的声音事件的ID。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Int"
+                            ],
+                            "key": "tick_delay",
+                            "description": "两次播放间的最小延迟。参见环境音效#氛围算法。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Int"
+                            ],
+                            "key": "block_search_extent",
+                            "description": "决定了氛围音效播放位置的正方体范围的大小。此正方体范围以玩家为中心，棱长为2 * block_search_extent。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Double"
+                            ],
+                            "key": "offset",
+                            "description": "值越大，声源距离玩家越远。",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tags": [
+                        "TAG_Compound"
+                    ],
+                    "key": "additions_sound",
+                    "description": "（可选）附加音效所使用的设置。",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_String"
+                            ],
+                            "key": "sound",
+                            "description": "要使用的声音事件的ID。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Double"
+                            ],
+                            "key": "tick_chance",
+                            "description": "每一游戏刻中开始播放的概率。高于1的值相当于1，低于0的值相当于0。",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tags": [
+                        "TAG_Compound"
+                    ],
+                    "key": "music",
+                    "description": "（可选）该生物群系中的音乐。",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_String"
+                            ],
+                            "key": "sound",
+                            "description": "要使用的声音事件的ID。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Int"
+                            ],
+                            "key": "min_delay",
+                            "description": "两次播放间最小延迟。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Int"
+                            ],
+                            "key": "max_delay",
+                            "description": "两次播放间最大延迟。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Boolean"
+                            ],
+                            "key": "replace_current_music",
+                            "description": "是否立即替换正在播放的音乐。",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tags": [
+                "TAG_Compound"
+            ],
+            "key": "carvers",
+            "description": "要使用的地形雕刻器。",
+            "children": [
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_Compound",
+                        "TAG_List"
+                    ],
+                    "key": "air",
+                    "description": "（可选，可以为空列表）air雕刻器阶段使用的雕刻器。一个已配置雕刻器的ID，一个已配置雕刻器的标签，或者一个已配置雕刻器对象，或者一个已配置雕刻器ID的列表，或者一个已配置雕刻器对象的列表。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_Compound",
+                        "TAG_List"
+                    ],
+                    "key": "liquid",
+                    "description": "（可选，可以为空列表）liquid雕刻器阶段使用的雕刻器。当前不生效。一个已配置雕刻器的ID，一个已配置雕刻器的标签，或者一个已配置雕刻器对象，或者一个已配置雕刻器ID的列表，或者一个已配置雕刻器对象的列表。",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tags": [
+                "TAG_List"
+            ],
+            "key": "features",
+            "description": "（可以为空）由11个元素组成的列表。每个元素可以是已放置地物标签、已放置地物ID的列表、或已放置地物对象的列表。列举出的地物按步骤按顺序依次应用于每个区块。两个生物群系中同一步骤中相同已放置地物不能以不同的顺序排列。对于每个步骤，所有地物ID在不同生物群系也需要顺序一致。例如，在minecraft:plains中，UNDERGROUND_ORES步骤，ore_dirt在ore_gravel之前，所以在其他生物群系的UNDERGROUND_ORES步骤中，如果存在ore_dirt和ore_gravel，ore_dirt不能在ore_gravel之后。生成步骤也用于结构地物。",
+            "children": [
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型RAW_GENERATION（原始生成）。原版中用于小型末地岛屿。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型LAKES（湖）。原版中用于熔岩湖。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型LOCAL_MODIFICATIONS（局部修改）。原版中用于紫晶洞和冰山。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型UNDERGROUND_STRUCTURES（地下结构）。原版中用于主世界的地牢和化石。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型SURFACE_STRUCTURES（地表结构）。原版中用于沙漠水井和蓝冰斑块。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型STRONGHOLDS（要塞）。原版中不用于任何地物。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型UNDERGROUND_ORES（地下矿石）。原版中用于主世界的矿物团簇、主世界的泥土/沙砾/石头变种的团簇，以及湖中生成的沙子/沙砾/黏土的圆盘。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型UNDERGROUND_DECORATION（地下装饰）。原版中用于虫蚀方块的团簇、下界的沙砾团簇、下界的黑石团簇，以及其他所有的下界矿物团簇。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型FLUID_SPRINGS（流体涌泉）。原版中用于水和熔岩的喷泉。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型VEGETAL_DECORATION（植被装饰）。原版中用于树、竹子、仙人掌、海带，以及其他的地表/海底植被。",
+                    "children": []
+                },
+                {
+                    "tags": [
+                        "TAG_String",
+                        "TAG_List"
+                    ],
+                    "key": "",
+                    "description": "内部地物类型TOP_LAYER_MODIFICATION（顶层修改）。默认用于地表的冰冻。",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "tags": [
+                "TAG_Float"
+            ],
+            "key": "creature_spawn_probability",
+            "description": "值越大，世界生成时生成的动物（creature）数量越多。取值为0.0到0.9999999的闭区间。",
+            "children": []
+        },
+        {
+            "tags": [
+                "TAG_Compound"
+            ],
+            "key": "spawners",
+            "description": "（必选，但可以为空。若不包含某一个生物种类，则不生成此类生物）生物生成设置。",
+            "children": [
+                {
+                    "tags": [
+                        "TAG_List"
+                    ],
+                    "key": "<生物种类>",
+                    "description": "（可以为空。若为空，则不生成此类生物）键名可以是monster、creature、ambient、water_creature、underground_water_creature、water_ambient、misc或axolotls。一个生成数据的对象的列表，列表的每一项都对应一种应该在该生物群系生成的生物。",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_Compound"
+                            ],
+                            "key": "",
+                            "description": "单个生物的生成数据。",
+                            "children": [
+                                {
+                                    "tags": [
+                                        "TAG_String"
+                                    ],
+                                    "key": "type",
+                                    "description": "该生物的命名空间ID。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Int"
+                                    ],
+                                    "key": "weight",
+                                    "description": "该生物的生成权重，更高的值代表更多的生成。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Int"
+                                    ],
+                                    "key": "minCount",
+                                    "description": "成群生成时的最低数量。",
+                                    "children": []
+                                },
+                                {
+                                    "tags": [
+                                        "TAG_Int"
+                                    ],
+                                    "key": "maxCount",
+                                    "description": "成群生成时的最高数量。",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tags": [
+                "TAG_Compound"
+            ],
+            "key": "spawn_costs",
+            "description": "（必选，但可以为空。只有在此对象中列出的生物才使用生成势机制）生成势。以一套类似于模拟真空中的点电荷系统的机制控制该生物群系内生成生物的数量与密度。详见生成#生成势",
+            "children": [
+                {
+                    "tags": [
+                        "TAG_Compound"
+                    ],
+                    "key": "<实体ID>",
+                    "description": "生成的实体。",
+                    "children": [
+                        {
+                            "tags": [
+                                "TAG_Double"
+                            ],
+                            "key": "energy_budget",
+                            "description": "电势预算。生成此实体时能消耗最大能量。在宏观意义上看，此值越小生成的越少。",
+                            "children": []
+                        },
+                        {
+                            "tags": [
+                                "TAG_Double"
+                            ],
+                            "key": "charge",
+                            "description": "此次生成放置的点电荷的电荷量。每次生成都在之前放置的点电荷的基础上试图将一个点电荷从无穷远处移动到目标点，计算电势能并比较以决定是否生成。在宏观意义上看，此值越大生成的越少。",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

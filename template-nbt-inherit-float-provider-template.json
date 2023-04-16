@@ -1,0 +1,134 @@
+[
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "type",
+        "description": "浮点提供器的类型。可以是constant（常量）、uniform（均匀分布浮点数）、clamped_normal（正态分布浮点数）或trapezoid（梯形分布浮点数）。如果type为constant：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "value",
+        "description": "需要使用的恒定值。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "value",
+        "description": "另一种格式。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "value",
+                "description": "需要使用的恒定值。",
+                "children": []
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "value",
+        "description": "提供均匀分布的边界。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "min_inclusive",
+                "description": "可能的最小值（包含）。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "max_exclusive",
+                "description": "可能的最大值（不包含）。必须大于min_inclusive。",
+                "children": []
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "value",
+        "description": "正态分布的参数。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "mean",
+                "description": "正态分布的平均数。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "deviation",
+                "description": "正态分布的离差。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "min",
+                "description": "可取到的最小值。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "max",
+                "description": "可取到的最大值。必须大于min。",
+                "children": []
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "value",
+        "description": "梯形分布的参数。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "min",
+                "description": "最小值。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "max",
+                "description": "最大值。必须大于min_inclusive。",
+                "children": []
+            },
+            {
+                "tags": [
+                    "TAG_Float"
+                ],
+                "key": "plateau",
+                "description": "梯形分布中均匀分布部分的范围，必须小于等于最大值与最小值之差。",
+                "children": []
+            }
+        ]
+    }
+]

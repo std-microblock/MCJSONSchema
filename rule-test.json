@@ -1,0 +1,80 @@
+[
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "predicate_type",
+        "description": ": 可为以下值：always_true以永远通过；block_match以匹配一个方块；blockstate_match以匹配一个特定的方块状态；random_block_match以匹配方块，并以一个随机的概率通过；random_blockstate_match以匹配一个特定的方块状态，并以一个随机的概率通过；tag_match以检测方块是否在方块标签中。若predicate_type为block_match，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "block",
+        "description": ": 方块ID。若predicate_type为blockstate_match，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "block_state",
+        "description": "方块状态。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-block-state-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "block",
+        "description": ": 方块的ID。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "probability",
+        "description": ": 若该方块匹配，该谓词通过的概率。大于1则视为1，小于0则视为0。若predicate_type为random_blockstate_match，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "probability",
+        "description": ": 若该方块匹配，该谓词通过的概率。大于1则视为1，小于0则视为0。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "block_state",
+        "description": "方块状态。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-block-state-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "tag",
+        "description": ": 不带#的方块标签。",
+        "children": []
+    }
+]

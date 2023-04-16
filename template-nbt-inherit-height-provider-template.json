@@ -1,0 +1,190 @@
+[
+    {
+        "tags": [],
+        "key": "",
+        "description": "直接指定恒定高度：",
+        "children": []
+    },
+    {
+        "tags": [
+            "MCS_Pointer"
+        ],
+        "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+    },
+    {
+        "tags": [],
+        "key": "",
+        "description": "要么直接指定以上的恒定高度，要么指定如下的类型与附加参数：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "type",
+        "description": "高度提供器的类型。可以是constant（指定恒定高度）、uniform（随机选取，均匀分布）、biased_to_bottom（随机选取，偏向底部）、very_biased_to_bottom（随机选取[需要测试]）、trapezoid（随机选取，等腰梯形分布）或weighted_list（在加权列表中随机选取）。如果type为constant，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "value",
+        "description": "作为恒定高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "min_inclusive",
+        "description": "作为最小高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "max_inclusive",
+        "description": "作为最大高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "min_inclusive",
+        "description": "作为最小高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "max_inclusive",
+        "description": "作为最大高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "inner",
+        "description": "（可选，默认为1）内部值。取值为大于等于1的整数。如果type为trapezoid，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "min_inclusive",
+        "description": "作为最小高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Compound"
+        ],
+        "key": "max_inclusive",
+        "description": "作为最大高度的垂直锚点。",
+        "children": [
+            {
+                "tags": [
+                    "MCS_Pointer"
+                ],
+                "point_to": "template-nbt-inherit-vertical-anchor-template.json"
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "plateau",
+        "description": "（可选，默认为0）等腰梯形分布的上底长度。如果type为weighted_list，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_List"
+        ],
+        "key": "distribution",
+        "description": "（不能为空）一个加权随机池。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Compound"
+                ],
+                "key": "",
+                "description": "随机池中的一项。",
+                "children": [
+                    {
+                        "tags": [
+                            "TAG_Int"
+                        ],
+                        "key": "data",
+                        "description": "高度提供器。",
+                        "children": [
+                            {
+                                "tags": [],
+                                "key": "",
+                                "description": "Circular reference detected: x -> 1 -> x -> 1 -> x -> 0 -> Template:Nbt inherit/height_provider/template -> 13 -> x -> 0 -> x -> 0 -> x -> 0 -> Template:Nbt inherit/height_provider/template",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "tags": [
+                            "TAG_Int"
+                        ],
+                        "key": "weight",
+                        "description": "该项的权重。",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

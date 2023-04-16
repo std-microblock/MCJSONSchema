@@ -1,0 +1,82 @@
+[
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "predicate_type",
+        "description": ": 可为以下值：always_true以永远通过；linear_pos以一个随机的概率通过，该概率基于当前方块位置到结构起始点的三维曼哈顿距离。axis_aligned_linear_pos则只考虑指定轴上的距离。若predicate_type为linear_pos，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "min_chance",
+        "description": ": （可选，默认为0.0）当方块距结构起始点的距离小于等于min_dist时，该谓词通过的概率（小于0则概率0，大于1则概率为1）。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "max_chance",
+        "description": ": （可选，默认为0.0）当方块距结构起始点的距离大于等于max_dist时，该谓词通过的概率（小于0则概率0，大于1则概率为1）。若方块的距离在min_dist和max_dist之间，则概率由min_chance和max_chance经线性插值而得，即概率为( 距离 - min_dist ) / ( max_dist - min_dist ) * ( max_chance - min_chance ) + min_chance，得到的概率小于0则视为0，大于1则视为1。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "min_dist",
+        "description": "（可选，默认为0）达到最小概率时的距离。必须小于max_dist。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "max_dist",
+        "description": "（可选，默认为0）达到最大概率时的距离。必须大于min_dist。若predicate_type为axis_aligned_linear_pos，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "axis",
+        "description": ": （可选，默认为y）可以为x、y或z。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "min_chance",
+        "description": ": （可选，默认为0.0）当方块距结构起始点的距离小于等于min_dist时，该谓词通过的概率（小于0则概率0，大于1则概率为1）。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "max_chance",
+        "description": ": （可选，默认为0.0）当方块距结构起始点的距离大于等于max_dist时，该谓词通过的概率（小于0则概率0，大于1则概率为1）。若方块的距离在min_dist和max_dist之间，则概率由min_chance和max_chance经线性插值而得，即概率为( 距离 - min_dist ) / ( max_dist - min_dist ) * ( max_chance - min_chance ) + min_chance，得到的概率小于0则视为0，大于1则视为1。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "min_dist",
+        "description": "（可选，默认为0）达到最小概率时的距离。必须小于max_dist。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "max_dist",
+        "description": "（可选，默认为0）达到最大概率时的距离。必须大于min_dist。",
+        "children": []
+    }
+]

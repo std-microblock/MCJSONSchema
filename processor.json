@@ -1,0 +1,169 @@
+[
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "processor_type",
+        "description": "可为minecraft:rule（根据自定义规则替换方块）、minecraft:block_rot（随机移除结构中的方块。被移除的位置不会放置空气，而是保持结构生成前的方块。）、minecraft:block_age（做旧方块。石头、石砖、裂纹石砖有50%的概率被替换裂纹石砖、石砖楼梯，或者苔石砖、苔石砖楼梯。楼梯有50%的概率变为石头台阶、石砖台阶，或者苔石砖楼梯、苔石砖台阶。台阶和墙有概率变为苔石砖的变种。黑曜石有15%的概率变为哭泣的黑曜石。）、minecraft:block_ignore（移除指定的方块。被移除的位置不会放置空气，而是保持结构生成前的方块。）、minecraft:gravity（根据地形改变方块的高度。注意不是用于使结构中浮空的重力方块下落。）、minecraft:protected_blocks（指定哪些世界中的方块不能被该结构覆盖。）、minecraft:blackstone_replace（把所有石质的方块替换成黑石变种，把铁栏杆替换成锁链。）、minecraft:jigsaw_replacement（是否保留拼图方块和结构空位。默认使用此处理器，除非在拼图方块GUI中生成。）、minecraft:lava_submerged_block（轮廓箱形状不完整的方块将无法覆盖世界中原有的熔岩。）或minecraft:nop（无操作）。若processor_type为minecraft:rule，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_List"
+        ],
+        "key": "rules",
+        "description": "（必选，但可以为空）一个所要应用的规则的列表。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Compound"
+                ],
+                "key": "",
+                "description": "一条规则。",
+                "children": [
+                    {
+                        "tags": [
+                            "TAG_Compound"
+                        ],
+                        "key": "position_predicate",
+                        "description": "（可选，默认为一个always_true类型的测试）要应用到该结构地物起始点到该方块的距离上的测试。",
+                        "children": [
+                            {
+                                "tags": [
+                                    "MCS_Pointer"
+                                ],
+                                "point_to": "pos-rule-test.json"
+                            }
+                        ]
+                    },
+                    {
+                        "tags": [
+                            "TAG_Compound"
+                        ],
+                        "key": "input_predicate",
+                        "description": "要应用到被放置的方块上的测试。",
+                        "children": [
+                            {
+                                "tags": [
+                                    "MCS_Pointer"
+                                ],
+                                "point_to": "rule-test.json"
+                            }
+                        ]
+                    },
+                    {
+                        "tags": [
+                            "TAG_Compound"
+                        ],
+                        "key": "location_predicate",
+                        "description": "要应用到该结构生成前的该位置方块上的测试。",
+                        "children": [
+                            {
+                                "tags": [
+                                    "MCS_Pointer"
+                                ],
+                                "point_to": "rule-test.json"
+                            }
+                        ]
+                    },
+                    {
+                        "tags": [
+                            "TAG_Compound"
+                        ],
+                        "key": "output_state",
+                        "description": "所有条件满足时放置的方块。",
+                        "children": [
+                            {
+                                "tags": [
+                                    "MCS_Pointer"
+                                ],
+                                "point_to": "template-nbt-inherit-block-state-template.json"
+                            }
+                        ]
+                    },
+                    {
+                        "tags": [
+                            "TAG_Compound"
+                        ],
+                        "key": "output_nbt",
+                        "description": "（可选）所有条件满足时放置的方块实体的NBT。须为JSON格式，见NBT格式#JSON和NBT。",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "integrity",
+        "description": "结构的完整度，决定随机移除结构中方块的概率，取值为0到1的闭区间。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_String",
+            "TAG_List"
+        ],
+        "key": "rottable_blocks",
+        "description": "（可选）可以被移除的方块。一个方块ID或一个方块标签，或者一个方块ID的列表。如果不存在，则默认所有方块都可以被移除。若processor_type为minecraft:block_age，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Float"
+        ],
+        "key": "mossiness",
+        "description": "0.0以下的值相当于0.0；1.0以上的值相当于1.0。用于决定石质方块、楼梯、台阶和墙做旧时使用含青苔的变种的概率。若processor_type为minecraft:block_ignore，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_List"
+        ],
+        "key": "blocks",
+        "description": "（必选，但可以为空）要忽略的方块ID。只会匹配方块，指定方块状态不起作用。",
+        "children": [
+            {
+                "tags": [
+                    "TAG_Compound"
+                ],
+                "key": "",
+                "description": "一个方块。",
+                "children": [
+                    {
+                        "tags": [
+                            "MCS_Pointer"
+                        ],
+                        "point_to": "template-nbt-inherit-block-state-template.json"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "heightmap",
+        "description": "（可选，默认为WORLD_SURFACE_WG）必须是WORLD_SURFACE_WG（如果不是在世界生成阶段，则会被回落为WORLD_SURFACE）、WORLD_SURFACE、OCEAN_FLOOR_WG（如果不是在世界生成阶段，则会被回落为WORLD_SURFACE）、OCEAN_FLOOR、MOTION_BLOCKING或MOTION_BLOCKING_NO_LEAVES中的一个。",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_Int"
+        ],
+        "key": "offset",
+        "description": "（可选，默认为0）相对于指定高度图上下偏移的高度。例如：0为把该结构放置在地面上，-1为沉入地面一格。若processor_type为minecraft:protected_blocks，附加的参数如下：",
+        "children": []
+    },
+    {
+        "tags": [
+            "TAG_String"
+        ],
+        "key": "value",
+        "description": "一个带有#的方块标签。",
+        "children": []
+    }
+]
