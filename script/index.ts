@@ -1,14 +1,18 @@
-import { writeFile } from "fs/promises"
+import { writeFile, readFile } from "fs/promises"
 import { fetchTreeviewFromURL } from "./treeview-parser"
 import { CUSTOM_WORLD_GEN_URL } from "./fandom"
 
 !(async () => {
-    await writeFile("../custom-world-generation-noise.json",
+    const readme=(await readFile('../readme.md')).toString();
+    const slots = readme.matchAll(/\| (.*?) \| \[(.*?)\].*?\|.*?\((.*?)\)/g)\|(.*?)\|];
+    for(const slot of slots){
+        await writeFile(slot[2],
         JSON.stringify(
-            await fetchTreeviewFromURL(
-                CUSTOM_WORLD_GEN_URL, ".treeview > ul > li"
+                await fetchTreeviewFromURL(
+                    slot[3], slot[4]
+                )
+                , null, 4
             )
-            , null, 4
-        )
-    );
+        );
+    }
 })()
